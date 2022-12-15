@@ -41,13 +41,10 @@ export default function ShoppingCart() {
   const rows = [];
   let sum = 0;
   let num = 0
-  console.log(OrderList);
-
   OrderList.map((el) => {
     sum = sum + Number(el.price);
     rows.push(createData(el.product, 1 ,el.price));
     num = num + 1;
-    console.log(sum);
   })
   rows.push(createTotal(num,sum));
 
