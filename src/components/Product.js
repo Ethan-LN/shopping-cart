@@ -7,6 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function Product(props) {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Card sx={{ maxWidth: 400, minWidth:300, maxHeight:520, minHeight:520}}>
       <CardMedia
@@ -27,7 +31,7 @@ export default function Product(props) {
       </CardContent>
       <CardActions>
         {/* <Button size="small">moreInfor</Button> */}
-        <Button size="small">add to cart</Button>
+        {/* <Button onclick={handleOpen} size="small">add to cart</Button> */}
       </CardActions>
     </Card>
   );
