@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { OrderList } from './Product';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -32,16 +33,22 @@ function createData(product, qty, price) {
   return { product, qty, price };
 }
 
-const rows = [
-  createData('Rainbow', 159, 24),
-  createData('Ice cream sandwich',37, 4),
-  createData('Eclair', 24, 6),
-  createData('Cupcake', 305, 67),
-  createData('Gingerbread', 49, 9),
-  createData('Total','' ,1320)
-];
+const createTotal = (qty, total) => {
+  return createData('Total', qty, total);
+}
 
 export default function ShoppingCart() {
+  const rows = [];
+  let sum = 0;
+  let num = 0
+  OrderList.map((el) => {
+    sum = sum + Number(el.price);
+    rows.push(createData(el.product, 1, el.price));
+    num = num + 1;
+  })
+  rows.push(createTotal(num, sum));
+
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="customized table">
@@ -55,12 +62,12 @@ export default function ShoppingCart() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+            <StyledTableRow key={row.product}>
               <StyledTableCell component="th" scope="row">
                 {row.product}
               </StyledTableCell>
               <StyledTableCell align="right">{row.qty}</StyledTableCell>
-              <StyledTableCell align="right">{row.price}</StyledTableCell> 
+              <StyledTableCell align="right">{row.price}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

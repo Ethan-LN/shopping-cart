@@ -34,23 +34,23 @@ function App() {
         <img src={logo} className="app__logo" alt="logo" />
         <div className="app__nav">
           <IconButton onClick={handleOpen} color="primary" aria-label="add to shopping cart">
-            <ShoppingCartIcon  sx={{ color:red[600], fontSize: 60}}/>
+            <ShoppingCartIcon sx={{ color: red[600], fontSize: 60 }} />
           </IconButton>
           <Modal
-              open={open}
-              onClose={handleClose}
-            >
-              <Box sx={modalStyle}>
-                <ShoppingCart />
-              </Box>
-            </Modal>
+            open={open}
+            onClose={handleClose}
+          >
+            <Box sx={modalStyle}>
+              <ShoppingCart />
+            </Box>
+          </Modal>
         </div>
       </header>
       <body className="product__pannel">
         {Products.map(item => (
-            <div className="product_item">
-              < Product name= {item.name} description={item.description} price={item.price} imageUrl= {item.imageUrl}/>
-            </div>
+          <div className="product_item">
+            < Product name={item.name} description={item.description} price={item.price} imageUrl={item.imageUrl} />
+          </div>
         ))}
       </body>
     </div>
