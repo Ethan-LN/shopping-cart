@@ -6,9 +6,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import GroupedButtons from './QtyButton';
+import { red } from '@mui/material/colors';
 
 
-const orderList = [];
+const OrderList = [];
 export default function Product(props) {
 
   const getQty = () => {
@@ -26,10 +27,8 @@ export default function Product(props) {
   };
 
   const addCart = (quantity) => {
-    orderList.push(order(quantity));
-    console.log(orderList);
+    OrderList.push(order(quantity));
   };
-  
 
   return (
     <Card sx={{ maxWidth: 400, minWidth:300, maxHeight:520, minHeight:520}}>
@@ -39,9 +38,8 @@ export default function Product(props) {
         image= {props.imageUrl}
         />
       <CardActions >
-        <GroupedButtons /*counter={this.props.counter}*//>
-        {/* {console.log(counter)}; */}
-        <Button onClick={addCart} size="small">add to cart</Button>
+        {/* <GroupedButtons /> */}
+        <Button sx={{ backgroundColor:red[100], color:red[600]}} onClick={addCart} size="small">add to cart</Button>
       </CardActions>
       <CardContent>
         <Typography gutterTop variant="h5" component="div">
@@ -58,3 +56,4 @@ export default function Product(props) {
     </Card>
   );
 }
+export {OrderList};
