@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button"
 import ButtonGroup from "@mui/material/ButtonGroup";
-import { red } from '@mui/material/colors';
 
 class GroupedButtons extends React.Component {
   state = { counter: 0 };
