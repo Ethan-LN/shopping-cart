@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: theme.palette.error.light,
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -28,16 +28,17 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(product, price, qty) {
-  return { product, price, qty };
+function createData(product, qty, price) {
+  return { product, qty, price };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 24),
+  createData('Rainbow', 159, 24),
   createData('Ice cream sandwich',37, 4),
   createData('Eclair', 24, 6),
   createData('Cupcake', 305, 67),
   createData('Gingerbread', 49, 9),
+  createData('Total','' ,1320)
 ];
 
 export default function ShoppingCart() {
@@ -47,8 +48,8 @@ export default function ShoppingCart() {
         <TableHead>
           <TableRow>
             <StyledTableCell>Product </StyledTableCell>
-            <StyledTableCell align="right">Price&nbsp;(AUD)</StyledTableCell>
             <StyledTableCell align="right">Qty</StyledTableCell>
+            <StyledTableCell align="right">Price&nbsp;(AUD)</StyledTableCell>
 
           </TableRow>
         </TableHead>
@@ -58,8 +59,8 @@ export default function ShoppingCart() {
               <StyledTableCell component="th" scope="row">
                 {row.product}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.price}</StyledTableCell>
-              <StyledTableCell align="right">{row.qty}</StyledTableCell> 
+              <StyledTableCell align="right">{row.qty}</StyledTableCell>
+              <StyledTableCell align="right">{row.price}</StyledTableCell> 
             </StyledTableRow>
           ))}
         </TableBody>

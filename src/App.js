@@ -4,18 +4,19 @@ import Product from './components/Product';
 import Products from './ProductList.json'
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { pink } from '@mui/material/colors';
+import { red } from '@mui/material/colors';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import ShoppingCart from './components/Cart';
+
 
 const modalStyle = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 600,
+  maxwidth: 600,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -33,7 +34,7 @@ function App() {
         <img src={logo} className="app__logo" alt="logo" />
         <div className="app__nav">
           <IconButton onClick={handleOpen} color="primary" aria-label="add to shopping cart">
-            <ShoppingCartIcon  sx={{ color: pink[500],fontSize: 60}}/>
+            <ShoppingCartIcon  sx={{ color:red[600], fontSize: 60}}/>
           </IconButton>
           <Modal
               open={open}
