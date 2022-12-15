@@ -33,8 +33,8 @@ function createData(product, qty, price) {
   return { product, qty, price };
 }
 
-const createTotal = (qty,total) => {
-  return createData('Total', qty , total);
+const createTotal = (qty, total) => {
+  return createData('Total', qty, total);
 }
 
 export default function ShoppingCart() {
@@ -43,10 +43,10 @@ export default function ShoppingCart() {
   let num = 0
   OrderList.map((el) => {
     sum = sum + Number(el.price);
-    rows.push(createData(el.product, 1 ,el.price));
+    rows.push(createData(el.product, 1, el.price));
     num = num + 1;
   })
-  rows.push(createTotal(num,sum));
+  rows.push(createTotal(num, sum));
 
 
   return (
@@ -67,7 +67,7 @@ export default function ShoppingCart() {
                 {row.product}
               </StyledTableCell>
               <StyledTableCell align="right">{row.qty}</StyledTableCell>
-              <StyledTableCell align="right">{row.price}</StyledTableCell> 
+              <StyledTableCell align="right">{row.price}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

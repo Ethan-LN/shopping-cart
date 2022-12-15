@@ -19,7 +19,8 @@ export default function Product(props) {
     return qty;
   }
   // const quantity = getQty();
-  const order = (quantity) => { return {
+  const order = (quantity) => {
+    return {
       product: props.name,
       // qty: quantity,
       price: props.price,
@@ -31,15 +32,15 @@ export default function Product(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 400, minWidth:300, maxHeight:520, minHeight:520}}>
+    <Card sx={{ maxWidth: 400, minWidth: 300, maxHeight: 520, minHeight: 520 }}>
       <CardMedia
         component="img"
         height="280"
-        image= {props.imageUrl}
-        />
+        image={props.imageUrl}
+      />
       <CardActions >
         {/* <GroupedButtons /> */}
-        <Button sx={{ backgroundColor:red[100], color:red[600]}} onClick={addCart} size="small">add to cart</Button>
+        <Button sx={{ backgroundColor: red[100], color: red[600] }} onClick={addCart} size="small">add to cart</Button>
       </CardActions>
       <CardContent>
         <Typography gutterTop variant="h5" component="div">
@@ -56,4 +57,4 @@ export default function Product(props) {
     </Card>
   );
 }
-export {OrderList};
+export { OrderList };
