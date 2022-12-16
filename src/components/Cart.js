@@ -67,7 +67,7 @@ export default function ShoppingCart() {
                 {row.product}
               </StyledTableCell>
               <StyledTableCell align="right">{row.qty}</StyledTableCell>
-              <StyledTableCell align="right">{row.price}</StyledTableCell>
+              <StyledTableCell align="right"> ${row.price}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

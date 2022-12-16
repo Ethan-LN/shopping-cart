@@ -1,7 +1,7 @@
 import './App.css';
-import logo from './shop-logo.png';
+import logo from './resources/shop-logo.png';
 import Product from './components/Product';
-import Products from './ProductList.json'
+import Products from './resources/ProductList.json';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { red } from '@mui/material/colors';
