@@ -42,9 +42,9 @@ export default function ShoppingCart() {
   let sum = 0;
   let num = 0
   OrderList.map((el) => {
-    sum = sum + Number(el.price);
-    rows.push(createData(el.product, 1, el.price));
-    num = num + 1;
+    sum = sum + (Number(el.price)*el.qty);
+    rows.push(createData(el.product, el.qty, el.price));
+    num = num + el.qty;
   })
   rows.push(createTotal(num, sum));
 

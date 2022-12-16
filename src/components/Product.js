@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import GroupedButtons from './QtyButton';
 import { red } from '@mui/material/colors';
 
-
 const OrderList = [];
 export default function Product(props) {
 
@@ -19,16 +18,27 @@ export default function Product(props) {
     return qty;
   }
   // const quantity = getQty();
-  const order = (quantity) => {
+
+  const order = () => {
     return {
       product: props.name,
-      // qty: quantity,
+      qty: 1,
       price: props.price,
     }
   };
 
-  const addCart = (quantity) => {
-    OrderList.push(order(quantity));
+  const checkMultiItems = (newItem) => {
+    if (OrderList.length !==0) {
+    OrderList.find(order => order.product === newItem.product? order.qty += newItem.qty : OrderList.push(newItem));
+    } else 
+    OrderList.push(newItem);
+  }
+
+  const addCart = () => {
+    const newOder = order();
+    console.log(newOder);
+    checkMultiItems(order());
+    console.log(OrderList);
   };
 
   return (
