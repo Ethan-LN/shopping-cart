@@ -8,27 +8,39 @@ import Typography from '@mui/material/Typography';
 import GroupedButtons from './QtyButton';
 import { red } from '@mui/material/colors';
 
-
 const OrderList = [];
 export default function Product(props) {
 
   const getQty = () => {
     const temp = GroupedButtons;
     const qty = temp.props.counter;
-    console.log(qty);
     return qty;
   }
   // const quantity = getQty();
-  const order = (quantity) => {
+
+  const order = () => {
     return {
       product: props.name,
-      // qty: quantity,
+      qty: 1,
       price: props.price,
     }
   };
 
-  const addCart = (quantity) => {
-    OrderList.push(order(quantity));
+  const checkMultiItems = (newItem) => {
+    if (OrderList.length > 0) {
+      if (OrderList.find(order => order.product === newItem.product)) {
+        OrderList.find(order => order.product === newItem.product ? order.qty += newItem.qty : console.log(""));
+      } else {
+        OrderList.push(newItem);
+      }
+    } else {
+      OrderList.push(newItem);
+    }
+  }
+
+  const addCart = () => {
+    const newOder = order();
+    checkMultiItems(order());
   };
 
   return (
