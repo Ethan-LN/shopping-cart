@@ -28,11 +28,17 @@ export default function Product(props) {
   };
 
   const checkMultiItems = (newItem) => {
-    if (OrderList.length !==0) {
-    OrderList.find(order => order.product === newItem.product? order.qty += newItem.qty : OrderList.push(newItem));
-    } else 
-    OrderList.push(newItem);
+    if (OrderList.length > 0) {
+      if (OrderList.find(order => order.product === newItem.product)) {
+        OrderList.find(order => order.product === newItem.product? order.qty += newItem.qty:console.log(""));
+        console.log("find overlapping id")
+      } else {
+        OrderList.push(newItem);
+      }
+    } else {
+      OrderList.push(newItem);
   }
+}
 
   const addCart = () => {
     const newOder = order();
