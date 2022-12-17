@@ -14,7 +14,6 @@ export default function Product(props) {
   const getQty = () => {
     const temp = GroupedButtons;
     const qty = temp.props.counter;
-    console.log(qty);
     return qty;
   }
   // const quantity = getQty();
@@ -30,21 +29,18 @@ export default function Product(props) {
   const checkMultiItems = (newItem) => {
     if (OrderList.length > 0) {
       if (OrderList.find(order => order.product === newItem.product)) {
-        OrderList.find(order => order.product === newItem.product? order.qty += newItem.qty:console.log(""));
-        console.log("find overlapping id")
+        OrderList.find(order => order.product === newItem.product ? order.qty += newItem.qty : console.log(""));
       } else {
         OrderList.push(newItem);
       }
     } else {
       OrderList.push(newItem);
+    }
   }
-}
 
   const addCart = () => {
     const newOder = order();
-    console.log(newOder);
     checkMultiItems(order());
-    console.log(OrderList);
   };
 
   return (
