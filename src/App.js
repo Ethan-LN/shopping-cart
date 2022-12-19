@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { red } from '@mui/material/colors';
 import * as React from 'react';
+import { useId, useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import ShoppingCart from './components/Cart';
@@ -27,6 +28,7 @@ function App() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const id = useId();
 
   return (
     <div className="app">
@@ -49,7 +51,7 @@ function App() {
       <body className="product__pannel">
         {Products.map(item => (
           <div className="product_item">
-            < Product name={item.name} description={item.description} price={item.price} imageUrl={item.imageUrl} />
+            < Product id={id} name={item.name} description={item.description} price={item.price} imageUrl={item.imageUrl} />
           </div>
         ))}
       </body>
