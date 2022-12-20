@@ -63,7 +63,7 @@ export default function Product(props) {
           {props.description}
         </Typography>
       </CardContent>
-      <CardActions className='card__button' >
+      <CardActions style={{justifyContent:"center"}} >
         <CountButtons />
         <Button sx={{ backgroundColor: red[100], color: red[600]}}  onClick={addCart} size="small">add to cart</Button>
       </CardActions>
